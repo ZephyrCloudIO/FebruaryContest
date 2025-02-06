@@ -77,6 +77,7 @@ export const ThreadProvider: React.FC<{ children: React.ReactNode }> = ({ childr
 
         setThreads(prev => [newThread, ...prev]);
         setActiveThread(newThread);
+        setStreamingThreadId(newThread.id);
         return newThread;
     };
 
