@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="description"
+      content="A modern and accessible Magic Eight Ball"
+    />
+    <meta name="viewport" content="width=device-width" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="generator" content="Astro v5.2.5" />
+    <title>Magic Eight Ball</title>
+    <style>
+      :root {
+        --background-gradient: linear-gradient(
+          145deg,
+          #1a1a1a 0%,
+          #0a0a0a 100%
+        );
+      }
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      html {
+        font-family: system-ui, sans-serif;
+        background: var(--background-gradient);
+        color: #fff;
+      }
+      body {
+        min-height: 100vh;
+      }
+      .container {
+        min-height: 100vh;
+        display: grid;
+        place-items: center;
+        text-align: center;
+        padding: 1rem;
+      }
+      h1 {
+        font-size: clamp(2rem, 5vw, 4rem);
+        margin-bottom: 2rem;
+        font-weight: 900;
+        background: linear-gradient(135deg, #fff, #8e8e8e);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+      }
+      .eight-ball {
+        width: min(80vw, 400px);
+        aspect-ratio: 1;
+        cursor: pointer;
+        transition: transform 0.3s ease;
+      }
+      .ball {
+        width: 100%;
+        height: 100%;
+        border-radius: 50%;
+        background: radial-gradient(circle at 30% 30%, #303030, #000 70%);
+        position: relative;
+        box-shadow: 0 0 50px #0000004d;
+      }
+      .window {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 45%;
+        aspect-ratio: 1;
+        background: #fff;
+        border-radius: 50%;
+        display: grid;
+        place-items: center;
+        padding: 1rem;
+      }
+      .answer {
+        font-size: clamp(0.8rem, 3vw, 1.2rem);
+        font-weight: 600;
+        color: #000;
+      }
+      .instruction {
+        margin-top: 2rem;
+        font-size: 1.2rem;
+        color: #666;
+      }
+      .eight-ball:hover {
+        transform: scale(1.02);
+      }
+      .shake {
+        animation: shake 0.5s ease-in-out;
+      }
+      @keyframes shake {
+        0%,
+        to {
+          transform: rotate(0);
+        }
+        20% {
+          transform: rotate(-20deg);
+        }
+        40% {
+          transform: rotate(20deg);
+        }
+        60% {
+          transform: rotate(-10deg);
+        }
+        80% {
+          transform: rotate(10deg);
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <main class="container">
+      <h1>Magic Eight Ball</h1>
+      <div
+        class="eight-ball"
+        id="eightBall"
+        tabindex="0"
+        role="button"
+        aria-label="Shake the magic eight ball for an answer"
+      >
+        <div class="ball">
+          <div class="window">
+            <div class="answer" id="answer">
+              <p aria-live="polite">Ask a question...</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <p class="instruction">Press Space or click to shake</p>
+    </main>
+  </body>
+</html>
+<script type="module">
+  const possibleAnswers = [
+      "It is certain",
+      "Without a doubt",
+      "You may rely on it",
+      "Yes definitely",
+      "Most likely",
+      "Better not tell you now",
+      "Cannot predict now",
+      "Don't count on it",
+      "My sources say no",
+      "Very doubtful",
+    ],
+    eightBall = document.getElementById("eightBall"),
+    answer = document.getElementById("answer");
+  function generateAnswer() {
+    const e = Math.floor(Math.random() * possibleAnswers.length);
+    return possibleAnswers[e];
+  }
+  function handleClick() {
+    eightBall?.classList.add("shake"),
+    answer && (answer.innerHTML = "<p>Thinking...</p>"),
+      setTimeout(() => {
+        eightBall?.classList.remove("shake"), answer && (answer.innerHTML = `<p>${generateAnswer()}</p>`);
+      }, 500);
+  }
+  eightBall?.addEventListener("click", handleClick);
+  eightBall?.addEventListener("keydown", (e) => {
+    (e.code === "Space" || e.code === "Enter") && (e.preventDefault(), i());
+  });
+</script>
