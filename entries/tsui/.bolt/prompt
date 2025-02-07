@@ -1,0 +1,36 @@
+Create a react + vite + typescript project that uses zephyr.
+The project is an editable personal portfolio.
+The project must fit the following requirements:
+
+- use react
+- use typescript
+- use zephyr
+- be an editable portfolio
+- use tailwind
+- have all the needed pacakges installed (eg. tailwindcss, vite, "vite-plugin-zephyr": "^0.0.30" )
+- allow users to modify the content of the page ( use the content-editable html attribute)
+- allow users to download the full HTML
+- when downloading the html remove all the content-editable attributes
+For this project we are using Zephyr, Zephyr is a set of toolkit to make the deployment of micro frontends faster easier
+
+The vite.config.ts must have this code to make Zephyr work proprely, ( do not add configurations to Zephyr):
+
+```mjs
+import {defineConfig} from 'vite';
+import react from '@vitejs/plugin-react';
+import {withZephyr} from 'vite-plugin-zephyr';
+import Inspect from 'vite-plugin-inspect';
+
+// https://vitejs.dev/config/
+export default defineConfig({
+ plugins: [
+   react(),
+   Inspect({ build: true, outputDir: 'dist/.vite-inspect' }),
+   withZephyr(),
+ ],
+});
+```
+Remember to install al the needed packages:
+eg. "vite-plugin-zephyr": "^0.0.30"
+
+The website must have a lighthouse score of 100 make all the possible optimizations to improve the lighthouse score ( optimize the html for that )
