@@ -1,6 +1,6 @@
 # FebruaryContest
 
-Color picer
+Color picker by Finn
 
 ## Preview URL
 
