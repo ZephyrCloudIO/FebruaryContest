@@ -2,9 +2,9 @@
 **Fastest deployment** showcase on how fast zephyr is at deploying
 
 ## Preview URL
-deployed: https://typesafe-70-fast-af-februarycontest-typesafeui-4fdd3fe9e-ze.zephyrcloud.app/
+deployed: https://typesafe-72-rspack-react-starter-speedrun-typesaf-f0647b3d9-ze.zephyrcloud.app/
 
-speed-run: https://drive.google.com/file/d/1v6k5CuknsFAcGBGjEPsDAMY5J9tKp4Xn/view?usp=sharing
+speed-run: https://drive.google.com/file/d/1iTDTv13vegQXEQiI5KCTGYXfpI_B4mWh/view?usp=sharing
 
 ## What is it?
 A magic ball site that was deployed in seconds!
