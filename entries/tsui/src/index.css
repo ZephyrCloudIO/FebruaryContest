@@ -1,0 +1,23 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+[contenteditable="true"] {
+  outline: 2px dashed #4f46e5;
+  padding: 2px;
+}
+
+[contenteditable="true"]:hover {
+  outline: 2px solid #4f46e5;
+}
+
+[contenteditable="true"]:focus {
+  outline: 2px solid #4f46e5;
+  background-color: rgba(79, 70, 229, 0.1);
+}
