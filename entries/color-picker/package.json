@@ -1,0 +1,27 @@
+{
+    "name": "1k",
+    "private": true,
+    "version": "1.0.0",
+    "scripts": {
+        "dev": "NODE_ENV=development rspack serve",
+        "build": "NODE_ENV=production rspack build"
+    },
+    "dependencies": {
+        "@tailwindcss/postcss": "^4.0.4",
+        "postcss": "^8.5.1",
+        "postcss-loader": "^8.1.1",
+        "react": "18.3.1",
+        "react-dom": "18.3.1",
+        "tailwindcss": "^4.0.4",
+        "zephyr-rspack-plugin": "0.0.30"
+    },
+    "devDependencies": {
+        "@rspack/cli": "1.1.4",
+        "@rspack/core": "1.1.4",
+        "@rspack/plugin-react-refresh": "1.0.0",
+        "@types/react": "18.3.12",
+        "@types/react-dom": "18.3.1",
+        "cross-env": "7.0.3",
+        "react-refresh": "0.14.2"
+    }
+}
